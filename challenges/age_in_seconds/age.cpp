@@ -1,7 +1,8 @@
 #include <iostream>
 #include <time.h>
+#include <limits>
 
-/* Days are inaccurate; Not considering leap years, days in February, etc. */
+/* TODO: Days are inaccurate; Not considering leap years, different days each months, etc. */
 int days_in_month = 31;
 int months_in_year = 12;
 int seconds_in_day = 86400;
@@ -27,20 +28,20 @@ int main(){
         if(std::cin.get() != '/' || month < 1 || month > months_in_year){
             std::cout << "Invalid month, try again." << std::endl;
             std::cin.clear();
-            std::cin.ignore(1000, '\n');
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             continue;
         }
         std::cin >> day;
         if(std::cin.get() != '/' || day < 1 || day > days_in_month){
             std::cout << "Invalid day, try again." << std::endl;
             std::cin.clear();
-            std::cin.ignore(1000, '\n');
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             continue;
         }
         if(!(std::cin >> year) || year < 0 || year > curr_year){
             std::cout << "Invalid year, try again." << std::endl;
             std::cin.clear();
-            std::cin.ignore(1000, '\n');
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             continue;
         }
         /* Check if input date is greater than current date */
@@ -49,7 +50,7 @@ int main(){
                 if(day > curr_day){
                     std::cout << "Invalid date, try again." << std::endl;
                     std::cin.clear();
-                    std::cin.ignore(1000, '\n');
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     continue;
                 }
             }

@@ -9,7 +9,7 @@ void encrypt(std::string ifilename, std::string ofilename, int key){
     std::ofstream ofile(ofilename, std::ofstream::trunc);
 
     if(!ifile.is_open()){
-        std::cout << "File could not be opened." << std::endl;
+        std::cerr << "File could not be opened." << std::endl;
         return;
     }
 
@@ -32,7 +32,7 @@ void decrypt(std::string ifilename, std::string ofilename, int key){
     std::ofstream ofile(ofilename, std::ofstream::trunc);
 
     if(!ifile.is_open()){
-        std::cout << "File could not be opened." << std::endl;
+        std::cerr << "File could not be opened." << std::endl;
         return;
     }
 
@@ -50,7 +50,7 @@ void decrypt(std::string ifilename, std::string ofilename, int key){
 
 int main(){
     /* Print title */
-    std::cout << "*** Encryption/Decryption ***" << std::endl;
+    std::cout << "*** Encryption/Decryption ***" << std::endl << std::endl;
 
     /* Ask user if encrypt or decrypt */
     std::string input;
@@ -60,7 +60,7 @@ int main(){
         if(input != "e" && input != "d"){
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Invalid input. [e/d]" << std::endl;
+            std::cerr << "Invalid input. [e/d]" << std::endl;
             continue;
         }
         break;
@@ -81,7 +81,7 @@ int main(){
     while(!(std::cin >> key)){
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cout << "Invalid integer." << std::endl;
+        std::cerr << "Invalid integer." << std::endl;
     }
 
     /* Call encryption/decryption functions */

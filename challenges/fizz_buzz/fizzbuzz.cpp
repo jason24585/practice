@@ -11,7 +11,7 @@ int main(){
     while(!(std::cin >> num)){
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cout << "Invalid input, try again." << std::endl;
+        std::cerr << "Invalid input, try again." << std::endl;
     }
 
     /* Fizz Buzz */
