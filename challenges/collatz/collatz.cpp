@@ -6,18 +6,20 @@ int main(){
     std::cout << "*** Collatz Conjecture ***" << std::endl << std::endl;
 
     /* Get user input */
-    int num;
+    int inputnum;
     std::string input;
     std::cout << "Enter an integer: " << std::endl;
     while (std::getline(std::cin, input)){
         std::stringstream ss(input);
-        if (ss >> num){
+        if (ss >> inputnum){
             if (ss.eof()){   
                 break;
             }
         }
         std::cerr << "Invalid input, try again." << std::endl;
     }
+
+    long num = inputnum;
 
     /* Apply Collatz conjecture */
     while(num != 1){
